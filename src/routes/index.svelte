@@ -1,37 +1,44 @@
 <script>
 	import successkid from 'images/successkid.jpg';
+	import Button from '../components/Button.svelte';
 </script>
 
-<style>
-	h1, figure, p {
-		text-align: center;
-		margin: 0 auto;
+<style lang="scss" global>
+	 @import "./style/theme.scss";
+
+	.container-main {
+		padding: 4rem 15vw;
+		display: flex;
+		justify-content: space-between;
 	}
 
-	h1 {
-		font-size: 2.8em;
-		text-transform: uppercase;
-		font-weight: 700;
-		margin: 0 0 0.5em 0;
+	.left {
+		flex: 1 1 50%;
+		img {
+			width: 100%;
+			height: auto;
+		}
 	}
 
-	figure {
-		margin: 0 0 1em 0;
-	}
+	.right {
+		padding: 5rem 8rem 0 3rem;
+		flex: 1 1 50%;
+		text-align: left;
 
-	img {
-		width: 100%;
-		max-width: 400px;
-		margin: 0 0 1em 0;
-	}
+		h2 {
+			color: $blue-1;
+			font-weight: 300;
+			font-size: 1.1rem;
+		}
 
-	p {
-		margin: 1em auto;
-	}
-
-	@media (min-width: 480px) {
 		h1 {
-			font-size: 4em;
+			color: $green-2;
+			font-weight: 500;
+			font-size: 2rem;
+		}
+
+		p{
+			color: $blue-3;
 		}
 	}
 </style>
@@ -40,11 +47,20 @@
 	<title>Sapper project template</title>
 </svelte:head>
 
-<h1>Great success!</h1>
-
-<figure>
-	<img alt="Success Kid" src="{successkid}">
-	<figcaption>Have fun with Sapper!</figcaption>
-</figure>
-
-<p><strong>Try editing this file (src/routes/index.svelte) to test live reloading.</strong></p>
+<div class="container-main">
+	<div class="left">
+		<img src="landing-apge.png" alt="landing page image">
+	</div>
+	<div class="right">
+		<h2>
+			SusFive was created with one goal in mind: 
+		</h2>
+		<h1>
+			To rid the world of pollution
+		</h1>
+		<p>
+			Our plan is to use carbon eating bacteria to clean the air. Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis ipsum fugit praesentium harum minus, illo alias. Eveniet velit qui aliquam.
+		</p>
+		<Button>Contact us</Button>
+	</div>
+</div>
