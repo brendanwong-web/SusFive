@@ -21,7 +21,7 @@
 	}
 
 	.right {
-		padding: 5rem 8rem 0 3rem;
+		padding: 5rem 8rem 0 0;
 		flex: 1 1 50%;
 		text-align: left;
 
@@ -59,7 +59,11 @@
 			To rid the world of pollution
 		</h1>
 		<p>
-			Our plan is to use carbon eating bacteria to clean the air. Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis ipsum fugit praesentium harum minus, illo alias. Eveniet velit qui aliquam.
+			Creating a better and more sustainable Earth for you .
+		</p>
+		<p>
+			
+Our plan is to use carbon eating bacteria to clean the air.	
 		</p>
 		<Button>Contact us</Button>
 	</div>
