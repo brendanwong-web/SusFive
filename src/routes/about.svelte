@@ -24,14 +24,14 @@
 }
    
 section {
-	background-color: $blue-1;
+	background-color: $green-2-lighter;
 	border-radius: 20px;
 	box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px,
 	rgba(0, 0, 0, 0.35) 0px 5px 15px;
 	margin-bottom: 2rem;
 
 	.title {
-		background-color: white;
+		background-color: $green-2;
 		border-top-left-radius: 20px;
 		border-top-right-radius: 20px;
 		padding: 1.5rem;
@@ -40,12 +40,13 @@ section {
 		h1 {
 			margin: 0;
 			font-weight: 400;
+			color: white;
 		}
 	}
 
 	.content {
 		padding: 1.5rem;
-		color: white;
+		color: $blue-3;
 
 		img {
 			border-radius: 7px;
