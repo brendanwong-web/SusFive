@@ -7,7 +7,7 @@
 	 @import "./style/theme.scss";
 
 	.container-main {
-		padding: 3rem 1rem 1rem;
+		padding: 3rem 15px 1rem;
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
@@ -36,6 +36,10 @@
 		padding: 1rem;
 		flex: 1 1 100%;
 		text-align: left;
+
+		@media screen and (min-width: 560px) {
+			padding: 1rem 0;
+		}
 
 		& button:last-child {
 			display: block;
