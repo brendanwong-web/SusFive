@@ -14,6 +14,12 @@
         box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
         transition: all 0.1s ease-in;
 
+
+        a {
+            padding: 0;
+            text-decoration: none;
+        }
+
         &:hover {
             color: $green-3;
             cursor: pointer;
@@ -25,6 +31,12 @@
     }
 </style>
 
-<button>
-    <slot />
+<script>
+    export let link;
+</script>
+
+<button >
+    <a href="{link}">
+        <slot />
+    </a>
 </button>

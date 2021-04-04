@@ -24,6 +24,12 @@ html, body {
 
 .container--flex {
     display: flex;
+    padding: 0;
+    flex-direction: column;
+    @media screen and (min-width: 560px) {
+        display: flex;
     padding: 1rem 0;
+    flex-direction: row;
 
+    }
 }

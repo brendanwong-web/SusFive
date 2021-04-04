@@ -1,10 +1,19 @@
+<script>
+	import MediaQuery from '../components//MediaQuery.svelte';
+</script>
+
 <style lang="scss" global>
 	@import "./style/theme.scss";
 
 	
 
 .container {
-    padding: 2rem 13vw;
+	padding: 6rem 1rem 1rem;
+
+	@media screen and (min-width: 560px) {
+		padding: 4rem 13vw;
+	}
+    
 
     img {
         width: 100%;
@@ -34,35 +43,43 @@ section {
 		background-color: $green-2;
 		border-top-left-radius: 20px;
 		border-top-right-radius: 20px;
-		padding: 1.5rem;
-		
+		padding: 15px;
+		@media screen and (min-width: 560px) {
+			padding: 1.5rem;
+		}
 
 		h1 {
 			margin: 0;
 			font-weight: 400;
 			color: white;
+			font-size: 30px;
+			@media screen and (min-width: 560px) {
+				font-weight: 400;
+				font-size: 2rem;
+			}
 		}
 	}
 
 	.content {
-		padding: 1.5rem;
+		
+		padding: 15px;
 		color: $blue-3;
+		@media screen and (min-width: 560px) {
+			padding: 1.5rem;
+		color: $blue-3;
+		}
 
 		img {
 			border-radius: 7px;
-			-webkit-box-shadow: inset 2px 2px 1px 0px rgba(0,0,0,0.49);
-			-moz-box-shadow: inset 2px 2px 1px 0px rgba(0,0,0,0.49);
-			box-shadow: inset 2px 2px 1px 0px rgba(0,0,0,0.49);
-			-webkit-box-shadow: inset 2px 2px 36px -7px rgba(0,0,0,0.19);
-			-moz-box-shadow: inset 2px 2px 36px -7px rgba(0,0,0,0.19);
-			box-shadow: inset 2px 2px 36px -7px rgba(0,0,0,0.19);
+			margin-bottom: 15px;
+			}
 		}
 
 		p {
 			margin-top: 0;
 		}
 	}
-}
+
 </style>
 
 <svelte:head>
@@ -79,7 +96,7 @@ section {
 		<div class="content">
 			<div class="container--flex">
 				<div class="left">
-					<img src="bacpair.jpg" alt="bacpair">
+					<img src="bacpair.png" alt="bacpair">
 				</div>
 				<div class="right">
 					<p>

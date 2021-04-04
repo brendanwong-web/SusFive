@@ -1,82 +1,250 @@
 <script>
+	import MediaQuery from './MediaQuery.svelte';
+	import { slide, fly } from "svelte/transition";
 	export let segment;
+	let showMobile = false;
+	function closeMobile() {
+		showMobile = false;
+	}
 </script>
 
-<style lang="scss" global>
-	 @import "./style/theme.scss";
+<style>
+	* {
+		box-sizing: border-box;
+	}
 	nav {
+		width: 96%;
+		position: fixed;
+		top: 0;
+		z-index: 2;
 		font-weight: 300;
-		padding: 10px 15vw;
+		padding: 1em 1em;
+		display: flex;
+		align-items: center;
+		height: 60px;
+		background-color: #ffffff;
+	}
 
-		.container {
-			display: flex;
+	.mobileNav {
+		justify-content: space-between;
+		z-index: 1;
+	}
+
+
+	.logo img {
+		margin-top: 9px;
+		max-height: 30px;
+	}
+
+	.hamburger{
+		padding-top: 9px;
+		display: grid;
+		place-items: center;
+/* 		flex-direction: column;
+		justify-content: center;
+		align-items: center; */
+		position: relative;
+  		z-index: 3;
+		margin-right: 1rem;
+		width: 40px;
+		height: 50px;
+	}
+
+	.active.line::before  {
+		transform: rotate(45deg) translate(44px, -48px);
+		background-color: #0f3f46;
+		z-index: 3;
+	}
+
+	.active.line {
+		transform: translate(-60px, 0);
+		background-color: #0f3f46;
+;
+	}
+
+	.active.line::after {
+		transform: rotate(-45deg) translate(33px, 56px);
+		background-color:#0f3f46;
+	}
+
+	.line {
+		display: block;
+		width: 36px;
+		height: 4px;
+		margin-bottom: 8px;
+		position: relative;
+		background: #84cece;
+		border-radius: 3px;
+		z-index: 3;
+		transform-origin: 4px 0px;
+		transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+								background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+								opacity 0.55s ease;
+	}
+	.line::before,
+	.line::after {
+		content: '';
+		display: block;
+		width: 36px;
+		height: 4px;
+		position: absolute;
+		background: #84cece;
+		border-radius: 3px;
+		z-index: 99;
+		transform-origin: 4px 0px;
+		transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+								background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+								opacity 0.55s ease;
+	}
+	.line::before {
+		transform: translate(0, -10px);
+	}
+
+
+	.line::after {
+		transform: translate(0, 10px);
+	}
+
+	.mobileUl {
+		font-size: 1.5rem;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+	}
+
+	.mobileDrawer {
+		padding: 70px 1.5rem 40px 1.5rem;
+		position: fixed;
+		left: 0;
+		top: 0px;
+		z-index: 2;
+		background-color: #c8f3f3;
+	}
+
+	ul {
+		flex: 1;
+		margin: 0;
+		padding: 0;
+		flex-wrap: nowrap;
+		white-space: nowrap;
+	}
+	/* clearfix */
+	ul::after {
+		content: '';
+		display: block;
+		clear: both;
+	}
+	li {
+		display: inline-block;
+		font-weight: 500;
+		width: 100%;
+		color: #101831;
+
+	}
+	a {
+		text-decoration: none;
+		padding: 0.7em 0.5em 0.5em 0.5em;
+		margin-bottom: 0.5em;
+		display: block;
+	}
+
+	li .new:after {
+			display: inline;
+			content: 'NEW!';
+			font-size: 0.6rem;
+			color: rgb(8, 46, 46);
+			vertical-align: super;
+			margin-left: 0.6em;
+		}
+
+	@media only screen and (min-width: 760px) {
+		* {
+			box-sizing: border-box;
+		}
+		nav {
+			overflow-x: hidden;
+			overflow-y: hidden;
 			justify-content: space-between;
-			padding: 0 0;
+			position: fixed;
+			top: 0;
+			z-index: 99;
+			width: 100%;
+			background-color: #ffffff;
+			padding: 0 10vw;
 		}
 
 		.logo {
-			display: grid;
-			place-items: center;
+			margin-right: auto;
+			flex: 3;
+		}
 
-			img {
-				width: 50px;
-				height: auto;
-			}
+		a { 
+			padding: 0;
+			padding-bottom: 0.2em;
+			margin: 0.7em 0.5em 0.5em 0;
 		}
 
 		ul {
-			margin: 0;
-			padding: 0;
+			flex: 1;
+			margin-right: 0rem;
 		}
 
-		/* clearfix */
-		ul::after {
-			content: '';
-			display: block;
-			clear: both;
+		ul li {
+			font-size: 1.3rem;
+			font-weight: 500;
+			width: auto;
+			margin-right: 0.5rem;
 		}
 
-		li {
-			display: block;
-			float: left;
-			font-size: 1.5rem;
-		}		
-	}
+		.active {
+			border-bottom: 2px solid #7fcacf;
+		}
 
-	
-
-	[aria-current] {
-		position: relative;
-		display: inline-block;
-	}
-
-	[aria-current]::after {
-		position: absolute;
-		content: '';
-		width: calc(100% - 1em);
-		height: 2px;
-		background-color: $blue-3;
-		display: block;
-		bottom: -1px;
-	}
-
-	a {
-		text-decoration: none;
-		padding: 0.5em 0.5em;
-		display: block;
+		li .new:after {
+			display: inline;
+			content: 'NEW!';
+			font-size: 0.6rem;
+			color: rgb(66, 173, 173);
+			vertical-align: super;
+			margin-left: 0.3em;
+		}
 	}
 </style>
 
-<nav>
-	<div class="container">
+<MediaQuery query="(max-width: 768px)" let:matches>
+	{#if matches}
+	<nav class="mobileNav">
+		<div on:click={() => {showMobile = !showMobile}} class="hamburger">
+			<div class="line {showMobile? 'active' : ''}"></div>
+		</div>
 		<div class="logo">
 			<img src="logo-512.png" alt="logo">
 		</div>
+		{#if showMobile}
+		<div transition:fly={{x: -200}} class="mobileDrawer">
+			<ul transition:fly={{x: -200}} class="mobileUl">
+				<li on:click={closeMobile}><a href=".">Home</a></li>
+				<li on:click={closeMobile}><a href="about">Product</a></li>
+				<li on:click={closeMobile}><a href="contact">Contact</a></li>
+			</ul>
+		</div>
+		{/if}
+	</nav>
+	{/if}
+</MediaQuery>
+<MediaQuery query="(min-width: 769px)" let:matches>
+	{#if matches}
+	<nav>
+		<div class="logo">
+			<a href=".">
+				<img src="logo-512.png" alt="logo">
+			</a>
+
+		</div>
 		<ul>
-			<li><a aria-current="{segment === undefined ? 'page' : undefined}" href=".">home</a></li>
-			<li><a aria-current="{segment === 'about' ? 'page' : undefined}" href="about">about</a></li>
-			<li><a aria-current="{segment === 'contact' ? 'page' : undefined}" href="contact">contact</a></li>
+			<li><a href="about" class:active={segment === 'about'}>Product</a></li>
+			<li><a href="contact" class:active={segment === 'contact'}>Contact</a></li>
 		</ul>
-	</div>
-	
-</nav>
+	</nav>
+	{/if}
+</MediaQuery>

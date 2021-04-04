@@ -7,13 +7,25 @@
 	 @import "./style/theme.scss";
 
 	.container-main {
+		padding: 3rem 1rem 1rem;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+
+		@media screen and (min-width: 560px) {
 		padding: 4rem 15vw;
 		display: flex;
+		
+		flex-direction: row;
 		justify-content: space-between;
+	}
 	}
 
 	.left {
-		flex: 1 1 50%;
+		flex: 1 1 100%;
+		@media screen and (min-width: 560px) {
+			flex: 1 1 50%;
+		}
 		img {
 			width: 100%;
 			height: auto;
@@ -21,9 +33,25 @@
 	}
 
 	.right {
-		padding: 5rem 8rem 0 0;
-		flex: 1 1 50%;
+		padding: 1rem;
+		flex: 1 1 100%;
 		text-align: left;
+
+		& button:last-child {
+			display: block;
+			margin: 0 auto; 
+			@media screen and (min-width: 560px) {
+				margin: 0;
+			}
+		}
+
+		@media screen and (min-width: 560px) {
+			padding: 5rem 8rem 0 0;
+			flex: 1 1 50%;
+			text-align: left;
+		}
+
+		
 
 		h2 {
 			color: $blue-1;
@@ -65,6 +93,6 @@
 			
 Our plan is to use carbon eating bacteria to clean the air.	
 		</p>
-		<Button>Contact us</Button>
+		<Button link="contact">Contact us</Button>
 	</div>
 </div>
